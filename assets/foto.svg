@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" role="img" aria-label="Retrato ilustrado de Sofia Mendes">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a4a6b"/>
+      <stop offset="100%" stop-color="#12263d"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0.3" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#f3c7a6"/>
+      <stop offset="100%" stop-color="#d7a07b"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a2d1d"/>
+      <stop offset="100%" stop-color="#23140e"/>
+    </linearGradient>
+    <linearGradient id="blazer" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e3a56"/>
+      <stop offset="100%" stop-color="#0f1d2c"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="800" fill="url(#bg)"/>
+  <circle cx="78" cy="140" r="118" fill="#c9a227" opacity=".12"/>
+  <circle cx="575" cy="700" r="150" fill="#7eb7d4" opacity=".12"/>
+
+  <path d="M120 800 C165 575 220 515 320 512 C420 515 475 575 520 800 Z" fill="url(#blazer)"/>
+  <path d="M256 568 C286 520 354 520 384 568 L362 800 L278 800 Z" fill="#f4efe7"/>
+
+  <path d="M196 340 C176 250 198 175 248 140 C292 112 348 112 392 140 C442 175 464 250 444 340 C456 430 430 500 388 528 C360 544 280 544 252 528 C210 500 184 430 196 340 Z" fill="url(#hair)"/>
+  <ellipse cx="320" cy="330" rx="108" ry="128" fill="url(#skin)"/>
+  <path d="M214 250 C250 205 290 198 320 198 C350 198 390 205 426 250 C400 215 362 198 320 198 C278 198 240 215 214 250 Z" fill="url(#hair)"/>
+  <path d="M430 210 C470 250 478 330 456 400 C448 300 444 240 430 210 Z" fill="url(#hair)"/>
+  <path d="M210 210 C170 250 162 330 184 400 C192 300 196 240 210 210 Z" fill="url(#hair)"/>
+
+  <ellipse cx="282" cy="322" rx="14" ry="8.5" fill="#2c221c"/>
+  <ellipse cx="358" cy="322" rx="14" ry="8.5" fill="#2c221c"/>
+  <circle cx="287" cy="319" r="2.6" fill="#fff6ee"/>
+  <circle cx="363" cy="319" r="2.6" fill="#fff6ee"/>
+  <path d="M316 354 C322 362 332 362 338 354" fill="none" stroke="#c58b68" stroke-width="3" stroke-linecap="round"/>
+  <path d="M300 386 C318 402 342 402 348 386" fill="none" stroke="#c45d52" stroke-width="3.4" stroke-linecap="round"/>
+</svg>
