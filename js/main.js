@@ -130,36 +130,50 @@ async function exportPdf() {
   });
 
   const originalTagline = tagline ? tagline.innerHTML : "";
+  const previousScrollY = window.scrollY;
   prepareA4Layout();
 
   try {
     if (document.fonts?.ready) await document.fonts.ready;
-    await new Promise((resolve) => setTimeout(resolve, 400));
+    await new Promise((resolve) => requestAnimationFrame(() => setTimeout(resolve, 450)));
 
-    await html2pdf()
-      .set({
-        margin: [6, 6, 6, 6],
-        filename: "Priscila_Rios_de_Souza_Curriculo.pdf",
-        image: { type: "jpeg", quality: 0.94 },
-        html2canvas: {
-          scale: 2,
-          useCORS: true,
-          logging: false,
-          backgroundColor: "#f6f3ee",
-          windowWidth: 794,
-          scrollX: 0,
-          scrollY: 0
-        },
-        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-        pagebreak: { mode: ["css", "legacy"] }
-      })
-      .from(content)
-      .save();
+    // Página A4 (210×297 mm): margem interna no CSS; PDF sem margem extra
+    const opt = {
+      margin: 0,
+      filename: "Priscila_Rios_de_Souza_Curriculo.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        logging: false,
+        backgroundColor: "#f6f3ee",
+        windowWidth: 794,
+        windowHeight: Math.max(content.scrollHeight, 1123),
+        scrollX: 0,
+        scrollY: 0,
+        x: 0,
+        y: 0
+      },
+      jsPDF: {
+        unit: "mm",
+        format: "a4",
+        orientation: "portrait",
+        compress: true
+      },
+      pagebreak: {
+        mode: ["css", "legacy"],
+        avoid: [".job", ".card", ".section-head"]
+      }
+    };
+
+    await html2pdf().set(opt).from(content).save();
   } catch (error) {
     console.error(error);
     window.print();
   } finally {
     restoreA4Layout(originalTagline);
+    window.scrollTo(0, previousScrollY);
     buttons.forEach((button, index) => {
       button.disabled = false;
       button.innerHTML = previousLabels[index];

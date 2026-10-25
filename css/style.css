@@ -147,11 +147,11 @@ a {
 
 .hero h1 {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  font-size: clamp(2rem, 4.2vw, 3.6rem);
   font-weight: 600;
-  line-height: 0.95;
+  line-height: 1.05;
   margin-bottom: 18px;
-  max-width: 12ch;
+  white-space: nowrap;
 }
 
 .role {
@@ -259,20 +259,21 @@ a {
 }
 
 .photo-frame {
-  width: min(420px, 86vw);
-  aspect-ratio: 4 / 5;
+  width: min(380px, 82vw);
+  aspect-ratio: 2 / 3;
   border-radius: 28px;
   padding: 12px;
   background: linear-gradient(160deg, rgba(196, 163, 90, 0.9), rgba(61, 126, 166, 0.35));
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
   animation: float 6s ease-in-out infinite;
+  overflow: hidden;
 }
 
 .photo-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 12%;
+  object-position: center top;
   border-radius: 20px;
 }
 
@@ -617,13 +618,16 @@ a {
 
 @page {
   size: A4 portrait;
-  margin: 8mm;
+  margin: 10mm;
 }
 
 html.a4-mode,
 html.a4-mode body {
-  background: #f6f3ee;
-  overflow: visible;
+  width: 210mm !important;
+  max-width: 210mm !important;
+  margin: 0 !important;
+  background: #f6f3ee !important;
+  overflow: visible !important;
 }
 
 html.a4-mode .nav,
@@ -636,106 +640,129 @@ html.a4-mode .hero::after {
 }
 
 html.a4-mode #cv-content {
-  width: 794px;
-  max-width: 794px;
-  margin: 0 auto;
-  background: #f6f3ee;
+  width: 210mm !important;
+  max-width: 210mm !important;
+  min-width: 210mm !important;
+  margin: 0 auto !important;
+  padding: 8mm 10mm !important;
+  background: #f6f3ee !important;
+  box-sizing: border-box !important;
 }
 
 html.a4-mode .hero {
-  min-height: 0;
-  grid-template-columns: 1fr 150px;
-  gap: 16px;
-  padding: 16px 18px 14px;
-  align-items: start;
+  min-height: 0 !important;
+  display: grid !important;
+  grid-template-columns: 1fr 32mm !important;
+  gap: 4mm !important;
+  padding: 4mm 0 3mm !important;
+  align-items: start !important;
+  overflow: hidden !important;
+  border-radius: 3mm !important;
+}
+
+html.a4-mode .hero-copy {
+  min-width: 0 !important;
 }
 
 html.a4-mode .hero h1 {
-  font-size: 2rem;
-  margin-bottom: 6px;
+  font-size: 18pt !important;
+  line-height: 1.1 !important;
+  margin-bottom: 2mm !important;
+  white-space: nowrap !important;
+  max-width: none !important;
 }
 
 html.a4-mode .eyebrow {
-  margin-bottom: 6px;
-  font-size: 0.68rem;
+  margin-bottom: 2mm !important;
+  font-size: 7.5pt !important;
 }
 
 html.a4-mode .role {
-  font-size: 0.88rem;
-  margin-bottom: 8px;
+  font-size: 9.5pt !important;
+  margin-bottom: 2.5mm !important;
 }
 
 html.a4-mode .summary {
-  font-size: 0.78rem;
-  line-height: 1.4;
-  max-width: none;
-  margin-top: 0;
+  font-size: 8.5pt !important;
+  line-height: 1.35 !important;
+  max-width: none !important;
+  margin-top: 0 !important;
 }
 
 html.a4-mode .contact-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 16px;
-  margin-top: 10px;
-  font-size: 0.78rem;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1.5mm 4mm !important;
+  margin-top: 3mm !important;
+  font-size: 8pt !important;
+}
+
+html.a4-mode .hero-photo {
+  width: 32mm !important;
 }
 
 html.a4-mode .photo-frame {
-  width: 150px;
-  animation: none;
-  padding: 6px;
-  border-radius: 16px;
+  width: 32mm !important;
+  animation: none !important;
+  padding: 1.5mm !important;
+  border-radius: 3mm !important;
 }
 
 html.a4-mode .photo-frame img {
-  border-radius: 12px;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 2mm !important;
+  object-fit: cover !important;
+  object-position: center top !important;
 }
 
 html.a4-mode .section {
-  padding: 12px 18px;
+  padding: 3.5mm 0 !important;
   break-inside: auto;
   page-break-inside: auto;
 }
 
 html.a4-mode .section-head {
-  margin-bottom: 10px;
+  margin-bottom: 3mm !important;
 }
 
 html.a4-mode .section-head h2 {
-  font-size: 1.45rem;
-  margin: 2px 0 4px;
+  font-size: 14pt !important;
+  margin: 1mm 0 1.5mm !important;
 }
 
 html.a4-mode .section-head p {
-  font-size: 0.78rem;
+  font-size: 8pt !important;
 }
 
 html.a4-mode .timeline {
-  gap: 8px;
+  gap: 2.5mm !important;
+}
+
+html.a4-mode .timeline::before {
+  display: none !important;
 }
 
 html.a4-mode .job {
-  padding: 10px 12px 10px 18px;
-  border-radius: 12px;
+  padding: 3mm 3.5mm !important;
+  border-radius: 2.5mm !important;
   opacity: 1 !important;
   transform: none !important;
-  animation: none;
-  box-shadow: none;
-  border: 1px solid rgba(14, 26, 43, 0.08);
-  break-inside: auto;
-  page-break-inside: auto;
+  animation: none !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(14, 26, 43, 0.08) !important;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 html.a4-mode .job::before {
-  left: 6px;
-  top: 14px;
-  width: 8px;
-  height: 8px;
-  box-shadow: none;
+  display: none !important;
 }
 
 html.a4-mode .job-areas {
-  gap: 8px 14px;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 2mm 3.5mm !important;
 }
 
 html.a4-mode .job-areas > div,
@@ -746,57 +773,61 @@ html.a4-mode .card {
 
 html.a4-mode .job h3,
 html.a4-mode .card h3 {
-  font-size: 0.95rem;
+  font-size: 10pt !important;
 }
 
 html.a4-mode .job ul,
 html.a4-mode .card p,
 html.a4-mode .job-tools,
 html.a4-mode .job-meta {
-  font-size: 0.74rem;
-  line-height: 1.35;
+  font-size: 8pt !important;
+  line-height: 1.3 !important;
 }
 
 html.a4-mode .job ul {
-  margin-top: 4px;
+  margin-top: 1mm !important;
 }
 
 html.a4-mode .card {
-  padding: 10px 12px;
-  border-radius: 12px;
-  box-shadow: none;
+  padding: 3mm !important;
+  border-radius: 2.5mm !important;
+  box-shadow: none !important;
   opacity: 1 !important;
   transform: none !important;
 }
 
 html.a4-mode .icon-wrap {
-  width: 28px;
-  height: 28px;
-  margin-bottom: 6px;
-  font-size: 0.8rem;
+  width: 7mm !important;
+  height: 7mm !important;
+  margin-bottom: 1.5mm !important;
+  font-size: 8pt !important;
 }
 
-html.a4-mode .grid-2,
-html.a4-mode .skills,
-html.a4-mode .projects {
-  gap: 8px;
+html.a4-mode .grid-2 {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 2.5mm !important;
 }
 
 html.a4-mode .skills {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 2.5mm !important;
 }
 
 html.a4-mode .projects {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 2.5mm !important;
 }
 
 html.a4-mode .project {
-  min-height: 0;
-  padding: 10px 12px;
+  min-height: 0 !important;
+  padding: 3mm !important;
 }
 
 html.a4-mode .project h3 {
-  font-size: 1.05rem;
+  font-size: 10.5pt !important;
 }
 
 html.a4-mode .reveal {
@@ -805,20 +836,29 @@ html.a4-mode .reveal {
 }
 
 html.a4-mode .footer {
-  padding: 10px 18px;
-  font-size: 0.72rem;
+  padding: 3mm 0 !important;
+  font-size: 7.5pt !important;
 }
 
 html.a4-mode,
 html.a4-mode * {
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
 }
 
 @media print {
   html,
   body {
-    width: 210mm;
-    background: #f6f3ee;
+    width: 210mm !important;
+    background: #f6f3ee !important;
+  }
+
+  .nav,
+  .hero-actions,
+  .photo-badge,
+  .skip-link,
+  .tagline,
+  .hero::after {
+    display: none !important;
   }
 }
